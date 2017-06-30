@@ -49,6 +49,18 @@ describe ('fizzBuzzer', function() {
       answer.should.equal(input.expected);
     });
   });
+
+  it('should show "num" for every other number' , function(){
+    const normalCases = [
+      {num:2, expected: 2},
+      {num:7, expected: 7},
+      {num:11, expected: 11 }
+    ];
+    normalCases.forEach(function(input) {
+      const answer = fizzBuzzer(input.num);
+      answer.should.equal(input.expected);
+    });
+  });  
   it('should show "`num` must be a number" for every non-number', function(){
     const badInputs = [
       {num: 'a' },
@@ -61,15 +73,5 @@ describe ('fizzBuzzer', function() {
       }).should.throw(Error);
     });
   });
-  it('should show "num" for every other number' , function(){
-    const normalCases = [
-      {num:2, expected: 2},
-      {num:7, expected: 7},
-      {num:11, expected: 11 }
-    ];
-    normalCases.forEach(function(input) {
-      const answer = fizzBuzzer(input.num);
-      answer.should.equal(input.expected);
-    });
-  });  
+  // alternate code: should.throw(function(){fizzBuzz(input);}, Error)
 });
